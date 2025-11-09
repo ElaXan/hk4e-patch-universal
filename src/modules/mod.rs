@@ -5,11 +5,13 @@ use anyhow::Result;
 use crate::interceptor::Interceptor;
 
 mod ccp_blocker;
+mod hoyopass;
 mod http;
 mod misc;
 mod security;
 
 pub use ccp_blocker::CcpBlocker;
+pub use hoyopass::HoYoPass;
 pub use http::Http;
 pub use misc::Misc;
 pub use security::Security;
@@ -44,6 +46,7 @@ pub enum ModuleType {
     Security,
     Misc,
     CcpBlocker,
+    HoYoPass,
 }
 
 pub trait MhyModule {

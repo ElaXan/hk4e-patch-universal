@@ -15,7 +15,7 @@ mod marshal;
 mod modules;
 mod util;
 
-use crate::modules::{Http, MhyContext, ModuleManager, Security, HoYoPass};
+use crate::modules::{MhyContext, ModuleManager, Security, HoYoPass};
 
 unsafe fn thread_func() {
     let mut module_manager = MODULE_MANAGER.write().unwrap();
@@ -44,7 +44,7 @@ unsafe fn thread_func() {
     module_manager.enable(MhyContext::<Security>::new(&exe_name));
     module_manager.enable(MhyContext::<HoYoPass>::new(&exe_name));
     marshal::find();
-    module_manager.enable(MhyContext::<Http>::new(&exe_name));
+    // module_manager.enable(MhyContext::<Http>::new(&exe_name));
     module_manager.enable(MhyContext::<Misc>::new(&exe_name));
 
     println!("Successfully initialized!");
